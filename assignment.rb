@@ -5,6 +5,13 @@ class Yarn
     quantity * yardage
   end
 
+  def use(type = "scarf")
+    puts "I will use this yarn to make a #{type}."
+  end
+
+  def rating
+    puts "Yarn is awesome!"
+  end
 end
 
 class Animal_Fiber < Yarn
@@ -17,10 +24,19 @@ end
 
 class Manmade_Fiber < Yarn
   attr_accessor :colorway, :brand, :name
+
+  def rating
+    puts "Acrylic yarn sucks!"
+    super
+  end
 end
 
 class Wool_Yarn < Animal_Fiber
   attr_accessor :colorway, :brand, :name
+
+  def use
+    super("sweater")
+  end
 end
 
 class Alpaca_Yarn < Animal_Fiber
@@ -53,6 +69,17 @@ sid_snug_dk1.colorway = "455 Butter Tubs"
 sid_snug_dk1.brand = "Sidar"
 sid_snug_dk1.name = "Snuggly DK"
 
+lblcot1 = Cotton_Yarn.new
+lblcot1.weight = "aran"
+lblcot1.num_of_plies = 4
+lblcot1.is_machine_wash = "Y"
+lblcot1.yardage = 236
+lblcot1.quantity = 5
+lblcot1.is_organic = "N"
+lblcot1.colorway = "Avocodo"
+lblcot1.brand = "Lion Brand"
+lblcot1.name = "Lion Cotton"
 
-puts malwor1.total_yds
-puts sid_snug_dk1.total_yds
+puts lblcot1.total_yds
+puts malwor1.use
+puts sid_snug_dk1.rating.inspect
