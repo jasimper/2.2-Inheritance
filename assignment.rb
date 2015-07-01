@@ -1,5 +1,6 @@
 class Yarn
-  attr_accessor :weight, :num_of_plies, :is_machine_wash, :yardage, :quantity
+  attr_accessor :weight, :num_of_plies, :is_machine_wash, :yardage,
+                :quantity, :colorway, :brand, :name
 
   def total_yds
     quantity * yardage
@@ -14,40 +15,34 @@ class Yarn
   end
 end
 
-class Animal_Fiber < Yarn
+class AnimalFiber < Yarn
   attr_accessor :is_organic, :is_next_to_skin
 end
 
-class Plant_Fiber < Yarn
+class PlantFiber < Yarn
   attr_accessor :is_organic
 end
 
-class Manmade_Fiber < Yarn
-  attr_accessor :colorway, :brand, :name
-
+class ManmadeFiber < Yarn
   def rating
     puts "Acrylic yarn sucks!"
     super
   end
 end
 
-class Wool_Yarn < Animal_Fiber
-  attr_accessor :colorway, :brand, :name
-
+class WoolYarn < Animal_Fiber
   def use
     super("sweater")
   end
 end
 
-class Alpaca_Yarn < Animal_Fiber
-  attr_accessor :colorway, :brand, :name
+class AlpacaYarn < Animal_Fiber
 end
 
-class Cotton_Yarn < Plant_Fiber
-  attr_accessor :colorway, :brand, :name
+class CottonYarn < Plant_Fiber  
 end
 
-malwor1 = Wool_Yarn.new
+malwor1 = WoolYarn.new
 malwor1.weight = "worsted"
 malwor1.num_of_plies = 1
 malwor1.is_machine_wash = "N"
@@ -59,7 +54,7 @@ malwor1.colorway = "011 Apple Green"
 malwor1.brand = "Malabrigo"
 malwor1.name = "Worsted"
 
-sid_snug_dk1 = Manmade_Fiber.new
+sid_snug_dk1 = ManmadeFiber.new
 sid_snug_dk1.weight = "dk"
 sid_snug_dk1.num_of_plies = 8
 sid_snug_dk1.is_machine_wash = "Y"
@@ -69,7 +64,7 @@ sid_snug_dk1.colorway = "455 Butter Tubs"
 sid_snug_dk1.brand = "Sidar"
 sid_snug_dk1.name = "Snuggly DK"
 
-lblcot1 = Cotton_Yarn.new
+lblcot1 = CottonYarn.new
 lblcot1.weight = "aran"
 lblcot1.num_of_plies = 4
 lblcot1.is_machine_wash = "Y"
